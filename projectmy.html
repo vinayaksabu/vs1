@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects - Vinayak Sabu</title><link rel="icon" href="your-logo.png" type="image/png">
+    <title>Vinayak Sabu</title>
+    <link rel="icon" href="your-logo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -12,6 +14,7 @@
             background-color: black;
             color: white;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         header {
@@ -19,7 +22,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: #000;
         }
 
         .logo {
@@ -27,48 +29,98 @@
             height: 50px;
         }
 
-        nav {
+        .menu-button {
+            font-size: 2em;
+            cursor: pointer;
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-button div {
+            width: 30px;
+            height: 3px;
+            background: white;
+        }
+
+        nav {
+            display: none;
+            flex-direction: column;
+            background-color: black;
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            width: 150px;
+            text-align: center;
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        nav.active {
+            display: flex;
+            max-height: 200px;
+            transition: max-height 0.5s ease-in;
         }
 
         nav a {
             color: white;
             text-decoration: none;
+            padding: 10px;
+            border-bottom: 1px solid white;
+        }
+
+        nav a:last-child {
+            border-bottom: none;
         }
 
         nav a:hover {
-            color: lightgrey;
+            color: grey;
         }
 
-        .content {
-            padding: 50px;
+        .intro {
             text-align: center;
+            padding: 50px 20px;
             animation: fadeIn 2s ease-in-out forwards;
         }
 
-        .content h1 {
-            font-size: 2.5em;
+        .intro h1 {
+            font-size: 4em;
             margin-bottom: 0.5em;
-        }
-
-        .content p {
-            font-size: 1.2em;
-        }
-
-        .project {
-            margin: 20px 0;
-        }
-
-        .project h2 {
-            font-size: 1.8em;
-            margin-bottom: 0.3em;
             animation: fadeIn 2s ease-in-out forwards;
         }
 
-        .project p {
-            font-size: 1em;
+        .intro p {
+            font-size: 1.5em;
+            animation: fadeIn 2s ease-in-out forwards;
         }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover .icon {
+            stroke: transparent;
+        }
+
+        .social-icons a:hover .icon-linkedin { fill: #0077b5; }
+        .social-icons a:hover .icon-instagram { fill: #e1306c; }
+        .social-icons a:hover .icon-github { fill: #181717; }
+        .social-icons a:hover .icon-x { fill: #1DA1F2; }
+        .social-icons a:hover .icon-gmail { fill: #d93025; }
 
         @keyframes fadeIn {
             from {
@@ -78,21 +130,95 @@
                 opacity: 1;
             }
         }
+
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: black;
+                position: absolute;
+                top: 80px; /* Adjusted to prevent collision with the 3-dot menu */
+                right: 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="your-logo.png" alt="Your Logo" class="logo">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Me</a>
+        <div class="menu-button" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="menu">
+            <a href="#" onclick="navigateTo('about-page')">About Me</a>
+            <a href="projectmy.html">My Projects</a>
             <a href="contactme.html">Contact Me</a>
         </nav>
     </header>
-    <div class="content">
-        <h1>My Projects</h1>
-        <div class="project">
-            <h2>Coming Soon</h2>
+    <section class="intro">
+        <h1>Vinayak Sabu</h1>
+        <p>Tech Enthusiast | Freelancer | Web Developer</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/vinayaksabu" target="_blank">
+                <svg class="icon icon-linkedin" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+            <a href="http://www.instagram.com/vinayak._.sabu?igsh=cGR1dG51cXI3dzAw" target="_blank">
+                <svg class="icon icon-instagram" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://github.com/vinayaksabu" target="_blank">
+                <svg class="icon icon-github" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.45-1.54 6.45-7a5.44 5.44 0 0 0-1.49-3.78 5.07 5.07 0 0 0-.09-3.77s-1.17-.37-3.84 1.43a13.38 13.38 0 0 0-7 0C4.51 1.13 3.34 1.5 3.34 1.5a5.07 5.07 0 0 0-.09 3.77A5.44 5.44 0 0 0 1.76 9c0 5.42 3.31 6.61 6.45 7a3.37 3.37 0 0 0-.94 2.6V22"></path>
+                </svg>
+            </a>
+            <a href="https://x.com/vinayaksabu8?t=g9Gp_zQGJOkKr7W-tVkhCA&s=09">
+                <svg class="icon icon-x" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23.19 4.37L15.06 12.5l8.13 8.13a.26.26 0 0 1-.36.36L14.7 12.86l-8.13 8.13a.26.26 0 0 1-.36-.36l8.13-8.13-8.13-8.13a.26.26 0 0 1 .[_{{{CITATION{{{_1{](https://github.com/watchping/vue-course/tree/6a60dc019287a13859793f1ec7fef84dc41aa2b9/temp.md)[_{{{CITATION{{{_2{](https://github.com/beam-ntth/Stocks-Trading-Simulator/tree/2def56d02223ed642af968b0b905a9def153f6bf/trading_simulator_app%2Fstatic%2Fjs%2Fmain.js)[_{{{CITATION{{{_3{](https://github.com/RajatSvN/Dotslash2/tree/a437e56e696e2beeee5764b1b919d4a32191f050/public%2Fjs%2Fdevfolio.js)[_{{{CITATION{{{_4{](https://github.com/repdom/dore/tree/4f7438f8b126a6d96884558f6f5e45ce4f8ceb8b/dist%2Flandrick-angular%2Fmain-es5.1fd938e1d4b913eb0e05.js)[_{{{CITATION{{{_5{](https://github.com/panveel/portfolio/tree/a026a3a84a43453ce9aafdcfa0a844a69b6bf072/src%2Fcomponents%2Ficons%2Flinkedin.js)[_{{{CITATION{{{_6{](https://github.com/YugAadiwasi/yug_portfolio/tree/abc367ba8b276080e33c93d5aa2dd8eff77c62fd/assets%2Fjs%2Fapp.js)[_{{{CITATION{{{_7{](https://github.com/avosalmon/laravel-static-blog/tree/1c461f3e9ff05aa59fee7870985b6b0cd9fffd3f/resources%2Fviews%2Flayouts%2Fapp.blade.php)[_{{{CITATION{{{_8{](https://github.com/bittenaplle/bittenaplle.github.io/tree/85ffe474d0ee23ce8b48ed8e5fc6c28981c999e1/milli%2Findex.php)[_{{{CITATION{{{_9{](https://github.com/AdrianKokot/niepopalcach-backend/tree/59a185d07ab3377ef42a30f1921d062e250f163e/resources%2Fviews%2Finc%2Ffooter.blade.php)[_{{{CITATION{{{_10{](https://github.com/judearasu/website/tree/b871a23808ad859f378babbe8e3f7e343e42e6c7/src%2Fpages%2Findex.js)[_{{{CITATION{{{_11{](https://github.com/Soltee/Footwear/tree/f7d0555f9514c769d7ae30955265f43e8fa1b737/resources%2Fviews%2Flayouts%2Fapp.blade.php)[_{{{CITATION{{{_12{](https://github.com/Soltee/talk_events/tree/97f9c8023f0a927713eb195d90009705164ba168/resources%2Fviews%2Flayouts%2Fapp.blade.php)[_{{{CITATION{{{_13{](https://github.com/Valdjr/globalizacao/tree/a349b3867ca61465adba20f99967376a830a2be6/index.php)                    <path d="M23.19 4.37L15.06 12.5l8.13 8.13a.26.26 0 0 1-.36.36L14.7 12.86l-8.13 8.13a.26.26 0 0 1-.36-.36l8.13-8.13-8.13-8.13a.26.26 0 0 1 .36-.36l8.13 8.13 8.13-8.13a.26.26 0 0 1 .36.36z"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <div class="page" id="about-page">
+        <h1>About Me</h1>
+        <p>Hello! I'm Vinayak Sabu, a passionate tech enthusiast, freelancer, and web developer. I love creating innovative web solutions and exploring new technologies. Welcome to my personal website!</p>
     </div>
+
+    <div class="page" id="projects-page">
+        <h1>My Projects</h1>
+        <p>Details about your projects can go here.</p>
+    </div>
+
+    <div class="page" id="contact-page">
+        <h1>Contact Me</h1>
+        <p>Your contact information goes here.</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
