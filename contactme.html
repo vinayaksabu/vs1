@@ -68,60 +68,21 @@
             color: #ffffff;
         }
 
-        .contact-form {
-            background-color: #000000;
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
             border: 1px solid #ffffff;
             border-radius: 10px;
-            padding: 30px;
-            max-width: 500px;
-            width: 100%;
+            overflow: hidden;
             box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
         }
 
-        .contact-form form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .contact-form label {
+        iframe {
             width: 100%;
-            text-align: left;
-            font-size: 1em;
-            color: #ffffff;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ffffff;
-            border-radius: 5px;
-            background-color: #000000;
-            color: #ffffff;
-            font-size: 1em;
-            transition: border 0.3s ease-in-out;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #0077ff;
-            outline: none;
-        }
-
-        .contact-form button {
-            width: 100%;
-            padding: 12px 25px;
-            background-color: #0077ff;
-            color: #ffffff;
+            height: 700px;
             border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .contact-form button:hover {
-            background-color: #0056cc;
+            background-color: #000000;
         }
 
         footer {
@@ -154,25 +115,14 @@
     </header>
     <div class="content">
         <h1>Contact Me</h1>
-        <p>Have questions or want to collaborate? Let’s connect!</p>
-        <div class="contact-form">
-            <iframe src="https://tally.so/r/{your-form-id}" frameborder="0" width="100%" height="500"></iframe>
-
-                <label for="name"></label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-                <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-                <label for="message"></label>
-                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
+        <p>Have questions or want to collaborate? Fill out the form below!</p>
+        <div class="form-container">
+            <!-- Embedded Tally Form -->
+            <iframe src="https://tally.so/r/waKK2B" title="Contact Form"></iframe>
         </div>
     </div>
     <footer>
-       
+    
     </footer>
 </body>
 </html>
